@@ -1,0 +1,46 @@
+body {
+    background-image: url(https://cdn.pixabay.com/photo/2016/11/28/10/48/child-1864718_1280.jpg);
+    background-size: cover;
+}
+
+.buttonContainer {
+    width: 650px;
+    height: 600px;
+    border: solid 0.1px;
+    border-radius: 25px;
+    background-color: #7a0400;
+    margin: 0px auto;
+    text-align: center;
+}
+
+button {
+    margin: 10px auto;
+    font-weight: bold;
+}
+
+.container {
+    width: 550px;
+    height: 520px;
+    overflow: hidden;
+    margin: 0px auto 0px auto;
+    background-color: #797C85;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: solid 0.1px;
+}
+
+.square {
+    background-color: #797C85;
+    /* width: 25%; */
+    /* height: 25%; */
+    margin: 0px;
+    /* Check les propriétés de border pour voir si il y a moyen d'en créer sans tout décaler */
+    /* border: inset 0.1px; */
+}
+
+.square.hovered {
+    background-color: darkslategray;
+}
+
+
