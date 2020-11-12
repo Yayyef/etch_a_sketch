@@ -20,9 +20,8 @@ function paint() {
         console.log(this);
     };
 };
-
-
 function classicMode() {
+    genSquares();
     squares = Array.from(document.querySelectorAll('.square'));    
     for (j = 0; j < squares.length; j++) {
         squares[j].addEventListener('mouseover', paint());
@@ -40,8 +39,8 @@ function paintShades() {
         };        
     }
 };
-
 function shadesMode() {
+    genSquares();
     squares = Array.from(document.querySelectorAll('.square'));    
     for (j = 0; j < squares.length; j++) {
         squares[j].addEventListener('mouseover', paintShades());
@@ -51,12 +50,12 @@ function shadesMode() {
 // DEFINITION DU MODE COULEUR ALEATOIRE (fonction + event handler)
 function paintRandomColor() {
     return function() {
-        this.style.backgroundColor = "rgb(" + Math.round((Math.random()) * 255) + ", " + Math.round((Math.random()) * 255) + ", " + Math.round((Math.random()) * 255) + ")";
+        this.style.backgroundColor = `rgb(${Math.round((Math.random()) * 255)}, ${Math.round((Math.random()) * 255)}, ${Math.round((Math.random()) * 255)})`;
         console.log(this);
-    }
+    };
 };
-
 function randomColorMode() {
+    genSquares();
     squares = Array.from(document.querySelectorAll('.square'));    
     for (j = 0; j < squares.length; j++) {
         squares[j].addEventListener('mouseover', paintRandomColor());
@@ -66,6 +65,7 @@ function randomColorMode() {
 // Génère des carrés avec la classe square et l'événement d'ajout de hovered quand on hover.
 function genSquares() {
     squareSide = 100/squarePerSide;
+
     for (let i = 0; i < (squarePerSide*squarePerSide); i++) {
         newSquare = document.createElement('div');
         // Il va falloir ajouter ici un moyen de définir les dimensions des squares en fonction de l'input du joueur.
@@ -86,17 +86,14 @@ clearButton.onclick = function clearGrid() {
     squarePerSide = prompt('Alors combien que tu veux de squares?');
     // CA ne marche pas, second prompt marche tous les cas.
     if (squarePerSide > 100 || squarePerSide === '') {
-        alert('Sélectionne un nombre inférieur à 100 steup.');
+        prompt("Sélectionne un nombre inférieur à 100 s'il te plait.");
     } else {
-        squaresToClear = Array.from(document.querySelectorAll('.square'));
+        let squaresToClear = Array.from(document.querySelectorAll('.square'));
         for (k = 0; k < squares.length; k++) {
             squaresToClear[k].remove();
         }
         genSquares();
     }
 }
-
-// NEXT STEP : on tente de faire un coloriage petit à petit
-// -On met des conditionnels dans le prompt?
 
 

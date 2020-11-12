@@ -3,10 +3,23 @@ body {
     background-size: cover;
 }
 
+.howToPlay {
+    background-color: #F1E6A5;
+    width: 300px;
+    height: 300px;
+    padding: 5px 10px 0px 10px;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 140px;
+    align-items: center;
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.5rem;
+}
+
 .buttonContainer {
     width: 650px;
     height: 600px;
-    border: solid 0.1px;
+    border: solid 3px;
     border-radius: 25px;
     background-color: #7a0400;
     margin: 0px auto;
@@ -22,6 +35,7 @@ button {
 .container {
     width: 550px;
     height: 520px;
+    border: solid 6px;
     overflow: hidden;
     margin: 0px auto 0px auto;
     background-color: #333438;
