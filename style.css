@@ -16,6 +16,7 @@ body {
 button {
     margin: 10px auto;
     font-weight: bold;
+    border-radius: 5px;
 }
 
 .container {
@@ -23,7 +24,7 @@ button {
     height: 520px;
     overflow: hidden;
     margin: 0px auto 0px auto;
-    background-color: #797C85;
+    background-color: #333438;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -31,9 +32,9 @@ button {
 }
 
 .square {
-    background-color: #797C85;
-    /* width: 25%; */
-    /* height: 25%; */
+    background-color: hsl(220, 9%, 80%);
+    /* filter: brightness(); */
+    opacity: 1;
     margin: 0px;
     /* Check les propriétés de border pour voir si il y a moyen d'en créer sans tout décaler */
     /* border: inset 0.1px; */

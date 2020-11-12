@@ -1,23 +1,67 @@
 const container = document.querySelector('.container');
+const randomColorButton = document.getElementById('randomColorButton');
 const clearButton = document.getElementById('clearButton');
 let newSquare;
-let squares;
+let squares; 
 let squarePerSide = 16;
 let squareSide;
 
-// Génération des cases avec classe et event handler
+
+// Génération initiale des cases
 window.addEventListener('load', function() {
     genSquares();    
+    shadesMode();
 });
 
-
+// DEFINITION DU MODE CLASSIQUE (fonction + event handler)
 function paint() {
     return function () {
         this.classList.add('hovered');
-        // this.style.opacity += '0.2';
         console.log(this);
     };
-}
+};
+
+
+function classicMode() {
+    squares = Array.from(document.querySelectorAll('.square'));    
+    for (j = 0; j < squares.length; j++) {
+        squares[j].addEventListener('mouseover', paint());
+    };
+};
+
+// Mode nuances de gris
+function paintShades() {
+    return function() {
+        if (this.style.opacity > 0) {
+            this.style.opacity -= 0.2;
+            console.log(this.style.opacity);
+        } else {
+            return;
+        };        
+    }
+};
+
+function shadesMode() {
+    squares = Array.from(document.querySelectorAll('.square'));    
+    for (j = 0; j < squares.length; j++) {
+        squares[j].addEventListener('mouseover', paintShades());
+    };
+};
+
+// DEFINITION DU MODE COULEUR ALEATOIRE (fonction + event handler)
+function paintRandomColor() {
+    return function() {
+        this.style.backgroundColor = "rgb(" + Math.round((Math.random()) * 255) + ", " + Math.round((Math.random()) * 255) + ", " + Math.round((Math.random()) * 255) + ")";
+        console.log(this);
+    }
+};
+
+function randomColorMode() {
+    squares = Array.from(document.querySelectorAll('.square'));    
+    for (j = 0; j < squares.length; j++) {
+        squares[j].addEventListener('mouseover', paintRandomColor());
+    };
+};
 
 // Génère des carrés avec la classe square et l'événement d'ajout de hovered quand on hover.
 function genSquares() {
@@ -28,20 +72,16 @@ function genSquares() {
         newSquare.classList.add('square');
         newSquare.style.width = squareSide + '%';
         newSquare.style.height = squareSide + '%';
+        newSquare.style.opacity = 1;
         container.appendChild(newSquare);
     }
-
-    squares = Array.from(document.querySelectorAll('.square'));    
-    for (j = 0; j < squares.length; j++) {
-        squares[j].addEventListener('mouseover', paint());
-    };    
-}
-
+    
+    // randomColorMode();
+};
 
 // FONCTIONNE avec onclick au lieu d'avec click pour une raison que j'ignore...
 
-
-function clearGrid() {
+clearButton.onclick = function clearGrid() {
 
     squarePerSide = prompt('Alors combien que tu veux de squares?');
     // CA ne marche pas, second prompt marche tous les cas.
