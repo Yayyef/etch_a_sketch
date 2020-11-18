@@ -5,6 +5,7 @@ let newSquare;
 let squares; 
 let squarePerSide = 16;
 let squareSide;
+let selectedMode = 'classic';
 
 
 // Génération initiale des cases
@@ -17,7 +18,6 @@ window.addEventListener('load', function() {
 function paint() {
     return function () {
         this.classList.add('hovered');
-        console.log(this);
     };
 };
 function classicMode() {
@@ -33,7 +33,6 @@ function paintShades() {
     return function() {
         if (this.style.opacity > 0) {
             this.style.opacity -= 0.2;
-            console.log(this.style.opacity);
         } else {
             return;
         };        
@@ -51,7 +50,6 @@ function shadesMode() {
 function paintRandomColor() {
     return function() {
         this.style.backgroundColor = `rgb(${Math.round((Math.random()) * 255)}, ${Math.round((Math.random()) * 255)}, ${Math.round((Math.random()) * 255)})`;
-        console.log(this);
     };
 };
 function randomColorMode() {
@@ -68,7 +66,6 @@ function genSquares() {
 
     for (let i = 0; i < (squarePerSide*squarePerSide); i++) {
         newSquare = document.createElement('div');
-        // Il va falloir ajouter ici un moyen de définir les dimensions des squares en fonction de l'input du joueur.
         newSquare.classList.add('square');
         newSquare.style.width = squareSide + '%';
         newSquare.style.height = squareSide + '%';
