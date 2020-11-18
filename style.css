@@ -30,8 +30,12 @@ body {
 button {
     margin: 10px auto;
     font-family: 'Righteous', cursive;
-    /* font-weight: bold; */
     border-radius: 5px;
+}
+
+button:focus {
+    background-color: rgb(43, 43, 43);
+    color: white;
 }
 
 .brand {
@@ -84,13 +88,9 @@ button {
     opacity: 1;
     margin: 0px;
     box-sizing: border-box;
-    /* z-index: -1; */
     border: solid 0.01px;
     border-color:  hsl(220, 9%, 70%);
 }
 
-.square.hovered {
-    background-color: darkslategray;
-}
 
 
