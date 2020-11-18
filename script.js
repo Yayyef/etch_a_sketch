@@ -83,17 +83,15 @@ function genSquares() {
 
 clearButton.onclick = function clearGrid() {
 
-    squarePerSide = prompt('Alors combien que tu veux de squares?');
-    // CA ne marche pas, second prompt marche tous les cas.
-    if (squarePerSide > 100 || squarePerSide === '') {
-        prompt("Sélectionne un nombre inférieur à 100 s'il te plait.");
-    } else {
-        let squaresToClear = Array.from(document.querySelectorAll('.square'));
-        for (k = 0; k < squares.length; k++) {
-            squaresToClear[k].remove();
-        }
-        genSquares();
+    squarePerSide = prompt('Sélectionne un nombre de carrés par côté! Celui-ci doit être inférieur ou égal à 100.');
+    while (squarePerSide > 100) {
+        squarePerSide = prompt('Sélectionne un nombre de carrés par côté! Il doit impérativement être inférieur à 100.');
+    } 
+
+    let squaresToClear = Array.from(document.querySelectorAll('.square'));
+    for (k = 0; k < squares.length; k++) {
+        squaresToClear[k].remove();
     }
+    genSquares();
+    
 }
-
-
